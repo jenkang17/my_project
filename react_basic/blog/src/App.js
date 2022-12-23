@@ -89,7 +89,7 @@ function App() {
             <div className='modal'>
                 <h4>제목</h4>
                 <p>일자</p>
-                <p>상세내용</p>
+                <p>내용</p>
             </div>
         );
     }
