@@ -1,5 +1,6 @@
 export const initialState = {
-    basket: []
+    basket: [],
+    user: null
 };
 
 export const getBasketTotal = (basket) =>
@@ -18,12 +19,53 @@ export const getBasketTotal = (basket) =>
 
 const reducer = (state, action) => {
 
+    //console.log(action);
+
     switch (action.type) {
         case 'ADD_TO_BASKET':
             return {
                 ...state,
                 basket: [...state.basket, action.item],
             };
+
+        case 'REMOVE_FROM_BASKET':
+
+            //console.log(state);
+            //console.log(action);
+
+            const index = state.basket.findIndex(
+                (basketItem) => basketItem.id === action.id
+            );
+
+            let newBasket = [...state.basket];
+
+            console.log(index);
+            console.log(newBasket);
+
+            if(index >= 0)
+            {
+                newBasket.splice(index, 1); // slice 제거를 시작할 인덱스, 몇개를 제거할 것인가 
+            }
+            else
+            {
+                console.warn(
+                    ' (id: ' +
+                    action.id +
+                    ')이 장바구니에 존재하지 않습니다 '
+                )
+            }
+
+            return {
+                ...state,
+                basket: newBasket
+            }
+
+        
+        case 'SET_USER':
+            return {
+                ...state,
+                user: action.user
+            }
 
         default:
             return state;

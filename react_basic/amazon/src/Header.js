@@ -4,9 +4,18 @@ import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import {Link} from "react-router-dom";
 import {useStateValue} from "./StateProvider";
+import { auth } from './firebase';
 
 function Header(){
-    const [{basket}, dispatch] = useStateValue();
+    const [{basket, user}] = useStateValue();
+
+    const handleAuthentication = () => {
+        if(user)
+        {
+            // firebase 내장함수 signOut();
+            auth.signOut();
+        }
+    }
 
     return (
         <div className="header">
@@ -24,10 +33,14 @@ function Header(){
             </div>
 
             <div className='header_nav'>
-
+        
                 <div className='header_option'>
                     <span className='header_optionLineOne'>안녕하세요!</span>
-                    <span className='header_optionLineTwo'>로그인하기</span>
+                    <Link to={!user && '/Login'} className='homelogin'> {/* {!user && '/Login'} if문과 같음 */}
+                        <span className='header_optionLineTwo' onClick={handleAuthentication} >
+                            {user ? '로그아웃' : '로그인'} {/* if문과 같음 : => else */}
+                        </span>
+                    </Link>
                 </div>
                 <div className='header_option'>
                     <span className='header_optionLineOne'>돌아가기</span>

@@ -8,12 +8,11 @@ function CheckoutProduct( {id, image, title, price, rating} ) {
 
     const removeFromBasket = () => {
         dispatch({
-            type:"REMOVE_FORM_BASKET",
-            item: {
-                id: id,
-            },
+            type:"REMOVE_FROM_BASKET",
+            id: id,
         });
     }
+    
     return (
         <div className='checkoutProduct'>
             <img className='checkoutProduct_image' src={image} alt="" />
@@ -29,13 +28,11 @@ function CheckoutProduct( {id, image, title, price, rating} ) {
                 </p>
 
                 <div className='checkoutProduct_rating'>
-                    {
-                        Array(rating)
+                    {Array(rating)
                         .fill()
-                        .map( ()=> (
+                        .map((_, i) => (
                             <p>★</p>
-                        ))
-                    }
+                        ))}
                 </div>
 
                 <button onClick={removeFromBasket}>삭제</button>
