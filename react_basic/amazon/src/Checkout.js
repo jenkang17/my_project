@@ -16,7 +16,8 @@ function Checkout() {
                     <h2 className='checkout_title'>{user?.email}의 장바구니입니다.</h2>
 
                     {basket.map(item => (
-                        <CheckoutProduct id={item.id} title={item.title} image={item.image} price={item.price} rating={item.rating} />
+                        <CheckoutProduct id={item.id} title={item.title} image={item.image} 
+                        price={item.price} rating={item.rating} />
                     ))}
                     
 

@@ -2,10 +2,17 @@ import Header from './Header';
 import Home from './Home';
 import Checkout from './Checkout';
 import Login from './Login';
+import Payment from './Payment';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useEffect } from 'react';
 import { auth } from './firebase';
 import { useStateValue } from './StateProvider';
+import { loadStripe } from '@stripe/stripe-js/pure';
+import {Elements} from "@stripe/react-stripe-js";
+
+const promize = loadStripe (
+    "pk_test_51MJCULHuh8RhhfNGhqI6Gy1L6clMPGp5rfoVzDCdUxbwTpgjP9r7WgHLK8jPseMoCqY8wHzEnk19t47lwSET9ydh00zq7Hbaib"
+)
 
 function App() {
 
@@ -37,6 +44,7 @@ function App() {
         <Router>
             <div className="App">
                 <Switch>
+
                     <Route path="/login">
                         <Login />
                     </Route>
@@ -50,6 +58,14 @@ function App() {
                         <Header />
                         <Checkout />
                     </Route>
+
+                    <Route path="/payment">
+                        <Header/>
+                        <Elements stripe={promize}>
+                            <Payment/>
+                        </Elements>
+                    </Route>
+
                 </Switch>
             </div>
         </Router>
