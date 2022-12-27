@@ -9,6 +9,7 @@ import { auth } from './firebase';
 import { useStateValue } from './StateProvider';
 import { loadStripe } from '@stripe/stripe-js/pure';
 import {Elements} from "@stripe/react-stripe-js";
+import Orders from './Orders';
 
 const promize = loadStripe (
     "pk_test_51MJCULHuh8RhhfNGhqI6Gy1L6clMPGp5rfoVzDCdUxbwTpgjP9r7WgHLK8jPseMoCqY8wHzEnk19t47lwSET9ydh00zq7Hbaib"
@@ -47,6 +48,11 @@ function App() {
 
                     <Route path="/login">
                         <Login />
+                    </Route>
+
+                    <Route path="/orders">
+                        <Header />
+                        <Orders />
                     </Route>
 
                     <Route exact path="/">

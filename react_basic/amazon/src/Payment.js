@@ -1,58 +1,85 @@
+import React, { useEffect, useState } from 'react';
 import './Payment.css';
-import { useStateValue } from './StateProvider';
-import { Link, useHistory } from "react-router-dom";
 import CheckoutProduct from './CheckoutProduct';
-import CurrencyFormat  from 'react-currency-format';
+import { Link, useHistory } from "react-router-dom";
+import { useStateValue } from './StateProvider';
+import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import { getBasketTotal } from './Reducer';
-import { CardElement, useElements } from '@stripe/react-stripe-js';
-import { useEffect } from 'react';
+import CurrencyFormat  from 'react-currency-format';
+import axios from "./axios";
+import { db } from './firebase';
 
 function Payment() {
     const [{basket, user}, dispatch] = useStateValue();
     const history = useHistory();
+
+    const stripe = useStripe();
+    const elements = useElements();
+
+    const [succeeded, setSucceeded] = useState(false);
+    const [processing, setProcessing] = useState("");
+
+
     const [error, setError] = useState(null);
     const [disable, setDisable] = useState(true);
-    const [processing, setProcessing] = useState("");
-    const [succeded, setSucceeded] = useState(false);
-
-
-    const [clientSecret, sedtClientSecret] = useState(true);
-
-
-    const stripe = useState();
-    const elements = useElements(true);
+    const [clientSecret, setClientSecret] = useState(true);
 
     useEffect(()=>{
         const getClientSecret = async () => {
-            const response.await axios ({
+            const res = await axios({
                 method: 'post',
-                url:'/payment/create?total=${getBasketTotal(basket) * 100}'
+                url: "/payments/create?total=" + getBasketTotal(basket) * 100
             });
-            setClientSecret(response.data.clientSecret)
+            setClientSecret(res.data.clientSecret)
         }
 
-        getClientSecret();
+        getClientSecret(); // 실행을 시켜야 getClientSecret을 가져올 수 있음
     }, [basket]) // [basket] 장바구니 내용이 바뀔 때 마다 getClientSecret(); 실행
 
-    const handleSubmit = async(event) => { // async => 비동기 신텍스
+    //console.log('client 비밀은 다음과 같아요', clientSecret);
+
+    const handleSubmit = async (event) => { // async => 비동기 신텍스 (await과 세트)
+
         event.preventDefault(); // 새로고침 방지
         setProcessing(true);
         
         const payload = await stripe.confirmCardPayment(clientSecret, {
-            payment_mothod: {
+            payment_method: {
                 card: elements.getElement(CardElement)
             }
         }).then(({paymentIntent}) => {
+            // paymentIntent = payment 확인 및 정보
+
+            db
+                .collection('users')
+                .doc(user?.uid)
+                .collection('orders')
+                .doc(paymentIntent.id)
+                .set({
+                    basket: basket,
+                    amount: paymentIntent.amount,
+                    created: paymentIntent.created
+
+                })
+            
+            // BUTTON 초기화
             setSucceeded(true);
-            setError(null);
-            setProcessing("");
+            setError(null)
+            setProcessing(false)
+
+            // 딜레이가 생겻을때 버튼이 비활성화 된다. 하지만 너무 빨리 넘어가서 확인이 불가능
+
+            dispatch({
+                type: 'EMPTY_BASKET'
+            })
+
 
             history.replace('/orders')
-        }
 
-    )
-        
+        })
+
     }
+
 
     const handleChange = (event) => {
         setDisable(event.empty);
@@ -129,7 +156,7 @@ function Payment() {
                                 prefix={"₩"}
                             />
 
-                            <button disabled={processing || disable || succeded}><span>{processing ? <p>결제중입니다.</p> : "결제하기"}</span></button>
+                            <button disabled={processing || disable || succeeded}><span>{processing ? <p>결제중입니다.</p> : "결제하기"}</span></button>
 
                         </div>
                         

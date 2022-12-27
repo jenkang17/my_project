@@ -35,7 +35,7 @@ function Subtotal() {
                 prefix={"₩"}
             />
 
-            <button onClick={e => history.push('/payment')}> 결제하기 </button>
+            <button onClick={e => history.push('/payment')}> 결제하러 가기 </button>
 
         </div>
     );

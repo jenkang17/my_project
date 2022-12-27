@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Header.css';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
@@ -35,7 +35,7 @@ function Header(){
             <div className='header_nav'>
         
                 <div className='header_option'>
-                    <span className='header_optionLineOne'>안녕하세요!</span>
+                    <span className='header_optionLineOne'>{!user? "게스트" : user.email}</span>
                     <Link to={!user && '/Login'} className='homelogin'> {/* {!user && '/Login'} if문과 같음 */}
                         <span className='header_optionLineTwo' onClick={handleAuthentication} >
                             {user ? '로그아웃' : '로그인'} {/* if문과 같음 : => else */}
@@ -44,7 +44,9 @@ function Header(){
                 </div>
                 <div className='header_option'>
                     <span className='header_optionLineOne'>돌아가기</span>
-                    <span className='header_optionLineTwo'>주문내역</span>
+                    <Link to="/orders" className='orderlist'>
+                        <span className='header_optionLineTwo'>주문내역</span>
+                    </Link>
                 </div>
                 <div className='header_option'>
                 <span className='header_optionLineOne'>반가워요</span>

@@ -29,13 +29,15 @@
 
 /* 0.2라는 것은 부모 콘테이너에서 title열이 20퍼만 자리를 차지 해라 */
 
-.payment_address, .payment_items, .payment_details {
+.payment_address, .payment_items {
     flex: 0.8;
 }
 
 
 .payment_details > form {
     max-width: 400px;
+
+
 }
 
 .payment_details > h3 {

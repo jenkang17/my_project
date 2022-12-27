@@ -1,3 +1,5 @@
+// Reducer 초기상태 설정 후 앱 전역에 보내줌
+
 export const initialState = {
     basket: [],
     user: null
@@ -24,9 +26,15 @@ const reducer = (state, action) => {
     switch (action.type) {
         case 'ADD_TO_BASKET':
             return {
-                ...state,
+                ...state, // ... => 스프레드 신텍스. [] 안에 내용만 가져옴
                 basket: [...state.basket, action.item],
             };
+        
+        case 'EMPTY_BASKET':
+            return {
+                ...state,
+                basket: []
+            }
 
         case 'REMOVE_FROM_BASKET':
 
