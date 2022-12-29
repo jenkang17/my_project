@@ -44,9 +44,12 @@ class App extends React.Component {
 
     search(searchKeyword) {
         const searchResult = store.search(searchKeyword);
+        const historyList = store.getHistoryList();
+
         this.setState({ 
             searchKeyword,
             searchResult,
+            historyList,
             submitted: true,
         });
     }
@@ -58,6 +61,7 @@ class App extends React.Component {
         this.setState(() => { // setState가 실행된 후에 콘솔을 찍음. 이유는 setState는 비동기 방식이라 UI상에서는 사라지지만 콘솔엔 남아있기 때문.
             return { 
                 searchKeyword: "", 
+                searchResult: [],
                 submitted: false,
             };
         }, () => {
