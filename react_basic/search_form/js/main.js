@@ -139,23 +139,28 @@ class App extends React.Component {
                 })}
             </ul>
         );
-
-        const hisrotyList = (
-            <ul className="list">
-                {this.state.historyList.map(({id, keyword, date}) => {
-                    return (
-                        <li
-                            key={id}
-                            onClick={ () => this.search(keyword)}
-                        >
-                            <span>{keyword}</span>
-                            <span className="date">{formatRelativeDate(date)}</span>
-                            <button className="btn-remove" onClick={(event) => this.handleClickRemoveHistory(event, keyword)}></button>
-                        </li>
-                    );
-                })}
-            </ul>
-        )
+        
+        
+            const hisrotyList = (
+                this.state.searchResult.length > 0 ? (
+                <ul className="list">
+                    {this.state.historyList.map(({id, keyword, date}) => {
+                        return (
+                            <li
+                                key={id}
+                                onClick={ () => this.search(keyword)}
+                            >
+                                <span>{keyword}</span>
+                                <span className="date">{formatRelativeDate(date)}</span>
+                                <button className="btn-remove" onClick={(event) => this.handleClickRemoveHistory(event, keyword)}></button>
+                            </li>
+                        );
+                    })}
+                </ul>
+                ): (
+                    <div className="empty-box">최근 검색어가 없습니다.</div>
+                )
+            )
 
         const tabs = (
             <>
