@@ -1,0 +1,21 @@
+html {
+    height: 100vh;
+}
+
+body {
+    height: 5000px;
+    background: #000;
+}
+
+#canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+section {
+    height: 100vh;
+}
