@@ -5,7 +5,7 @@ const tl = gsap.timeline();
 
 tl.from(".section03", {xPercent: -100})
 .from(".section04", {xPercent: 100})
-.from(".section05", {xPercent: 100});
+.from(".section05", {yPercent: 100});
 
 ScrollTrigger.create({
     animation:tl,
