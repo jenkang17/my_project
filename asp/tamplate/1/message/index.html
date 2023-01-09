@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html class="has-sidemenu" lang="en-US" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>Slot & Casino</title>
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicons/favicon.ico">
+    <link rel="manifest" href="/assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="/vendors/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/vendors/loaders.css/loaders.min.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=PT+Mono%7cPT+Serif:400,400i%7cLato:100,300,400,700,800,900"
+        rel="stylesheet">
+    <link href="/assets/css/theme.min.css" rel="stylesheet" />
+    <link href="/assets/css/user.min.css" rel="stylesheet" />
+    <link href="/assets/css/custom.css" rel="stylesheet" />
+</head>
+
+<body class="overflow-hidden-x message-wrap">
+    <!-- LIST -->
+    <div class="table-box">
+        <table class="table-style2">
+            <colgroup>
+                <col>
+                <col width="30%">
+                <col>
+                <col width="18%">
+                <col width="15%">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>보낸이</th>
+                    <th>내용</th>
+                    
+                    <th>보낸날짜</th>
+                    <th>상태</th>
+                    <th>관리</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="">관리자</td>
+                    <td><a href="/message/view.html?idx=1">카지노 이용규정<sapn class="new">N</sapn></a></td>
+                    <td>2022-11-15</td>
+                    <td><i class="fas fa-eye me-1"></i>읽음</td>
+                    <td><a href="#" class="btn-delete">삭제</a></td>
+                </tr>
+                <tr>
+                    <td class="">관리자</td>
+                    <td><a href="/message/view.html?idx=1">슬롯 이용규정<sapn class="new">N</sapn></a></td>
+                    <td>2022-11-15</td>
+                    <td><i class="fas fa-eye-slash me-1"></i>안읽음</td>
+                    <td><a href="#" class="btn-delete">삭제</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="btn-box text-center py-4">
+            <button type="button" class="btn-outline-secondary btn btn-sm" value="500000">더보기</button>
+        </div>
+    </div>
+    <!-- //LIST -->
+    <script src="/vendors/popper/popper.min.js"></script>
+    <script src="/vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="/vendors/anchorjs/anchor.min.js"></script>
+    <script src="/vendors/is/is.min.js"></script>
+    <script src="/vendors/isotope-layout/isotope.pkgd.min.js">
+    </script>
+    <script src="/vendors/isotope-packery/packery-mode.pkgd.min.js">
+    </script>
+    <script src="/vendors/rellax/rellax.min.js">
+    </script>
+    <script src="/vendors/fontawesome/all.min.js"></script>
+    <script src="/vendors/lodash/lodash.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="/vendors/imagesloaded/imagesloaded.pkgd.js"></script>
+    <script src="/vendors/gsap/gsap.js"></script>
+    <script src="/vendors/gsap/customEase.js"></script>
+    <script src="/vendors/gsap/drawSVGPlugin.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics-->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-122907869-1"></script>
+
+    <!-- Add -->
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="/assets/js/jquery.totemticker.js"></script>
+    <script src="/assets/js/odometer.min.js"></script>
+    <script src="/assets/js/countUp.min.js"></script>
+    <script src="/assets/js/common.js"></script>
+    <script src="/assets/js/money.js"></script>
+    <script>
+        //파라미터 GET 함수
+        $.fn.getUrlParameter = function (sParam) {
+            var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : sParameterName[1];
+                }
+            }
+        };
+
+        // 파라미터 받기
+        var idx = $.fn.getUrlParameter('idx');
+        // $(document).ready(function () {
+        //     $("#boardIdx").text(idx);
+        // })
+
+    </script>
+    <script src="/assets/js/theme.js"></script>
+</body>
+
+</html>
