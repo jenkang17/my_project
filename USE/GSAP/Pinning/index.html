@@ -1,69 +1,824 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pinning</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <header>
-        <nav class="navbar navbar-light navbar-expand-md bg-faded justify-content-center">
+        <nav class="navbar navbar-expand-md bg-faded justify-content-center">
             <div class="container">
-                <a href="/" class="navbar-brand d-flex w-50 me-auto">Navbar 3</a>
+                <a href="/" class="navbar-brand d-flex me-auto">Navbar 3</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsingNavbar3">
-                    <span class="navbar-toggler-icon"></span>
+                    <i class="bi bi-list"></i>
                 </button>
-                <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
-                    <ul class="navbar-nav w-100 justify-content-center">
+                <div class="navbar-collapse collapse" id="collapsingNavbar3">
+                    <ul class="navbar-nav nav-center ms-auto justify-content-center">
                         <li class="nav-item active">
-                            <a class="nav-link" onclick="gotoslide(1);">Link</a>
+                            <a href="/" class="nav-link"></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" onclick="gotoslide(2);">Codeply</a>
+                            <a class="nav-link" onclick="gotoslide(2);">슬롯</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" onclick="gotoslide(3);">Link</a>
+                            <a class="nav-link" onclick="gotoslide(3);">카지노</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" onclick="gotoslide(4);">Link</a>
+                            <a class="nav-link" onclick="gotoslide(4);">입금</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="gotoslide(5);">출금</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="gotoslide(6);">고객센터</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="gotoslide(7);">공지사항</a>
                         </li>
                     </ul>
-                    <ul class="nav navbar-nav ms-auto w-100 justify-content-end">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Right</a>
+                    <ul class="nav navbar-nav ms-auto justify-content-end">
+
+                        <!-- // 로그인 전 -->
+                        <!-- <li class="nav-item">
+                            <a href="javascript:register();" class="nav-link" >REGISTER</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Right</a>
+                            <a href="javascript:login();" class="nav-link" >LOGIN</a>
+                        </li> -->
+                        <!-- // 로그인 전 -->
+
+                        <!-- // 로그인 후 -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="bi bi-send"></i> (<span style="color: rgb(231, 181, 0);">2</span>)</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Menu </a>
+                            <a class="nav-link dropdown-toggle color-mint" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> userid 정보 </a>
                             <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarScrollingDropdown">
-                                <li><a class="dropdown-item" href="#">Item</a></li>
-                                <li><a class="dropdown-item" href="#">Item</a></li>
+                                <li><span>보유 머니</span><a class="dropdown-item" href="#">500,000</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Item</a></li>
+                                <li><span>보유 포인트</span><a class="dropdown-item" href="#">1,000,000</a></li>
+                                <!-- <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Item</a></li> -->
                             </ul>
                         </li>
+                        <!-- // 로그인 후 -->
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+
     <div id="container">
-        <section class="section section1">1</section>
-        <section class="section section2">2</section>
-        <section class="section section3">3</section>
-        <section class="section section4">4</section>
+        <section class="section section1">
+            <!-- <h5>Banner</h5> -->
+            <!-- <video muted autoplay loop>
+                <source src="/img/video/videoplayback.mp4#t=90" type="video/mp4">
+                <strong>Your browser does not support the video tag.</strong>
+            </video> -->
+            <div class="container">
+                <div class="slogan">
+                    <p>No.1 Gamble Site</p>
+                </div>
+            </div>
+        </section>
+        <section class="section section2 slots">
+            <div class="container">
+                <h5 class="mb-5">Slots</h5>
+                
+                <div class="inner-wrap">
+                    <div class="row row-cols-3 row-cols-sm-3 row-cols-md-5 row-cols-lg-5">
+                        <div class="col game-box">
+                            <a href="#">
+                                <img src="/img/game/slot/BNG.png" class="game-img" alt="BOONGO">
+                                <img src="/img/game/slot/logo_BNG.png" class="logo-img" alt="BOONGO">
+                            </a>
+                            <p>BOONGO</p>
+                        </div>
+                        <div class="col game-box">
+                            <a href="#">
+                                <img src="/img/game/slot/CQ9.png" class="game-img" alt="CQ9">
+                                <img src="/img/game/slot/logo_CQ9.png" class="logo-img" alt="CQ9">
+                            </a>
+                            <p>CQ9</p>
+                        </div>
+                        <div class="col game-box">
+                            <a href="#">
+                                <img src="/img/game/slot/DRAGOON.png" class="game-img" alt="DRAGOON">
+                                <img src="/img/game/slot/logo_DRAGOON.png" class="logo-img" alt="DRAGOON">
+                            </a>
+                            <p>DRAGOON</p>
+                        </div>
+                        <div class="col game-box">
+                            <a href="#">
+                                <img src="/img/game/slot/EVOPLAY.png" class="game-img" alt="EVOPLAY">
+                                <img src="/img/game/slot/logo_EVOPLAY.png" class="logo-img" alt="EVOPLAY">
+                            </a>
+                            <p>EVO PLAY</p>
+                        </div>
+                        <div class="col game-box">
+                            <a href="#">
+                                <img src="/img/game/slot/GAMEART.png" class="game-img" alt="GAMEART">
+                                <img src="/img/game/slot/logo_GAMEART.png" class="logo-img" alt="GAMEART">
+                            </a>
+                            <p>GAME ART</p>
+                        </div>
+                        <div class="col game-box">
+                            <a href="#">
+                                <img src="/img/game/slot/GAMOMAT.png" class="game-img" alt="GAMOMAT">
+                                <img src="/img/game/slot/logo_GAMOMAT.png" class="logo-img" alt="GAMOMAT">
+                            </a>
+                            <p>GAMOMAT</p>
+                        </div>
+                        <div class="col game-box">
+                            <a href="#">
+                                <img src="/img/game/slot/GENESIS.png" class="game-img" alt="GENESIS">
+                                <img src="/img/game/slot/logo_genesis.png" class="logo-img" alt="GENESIS">
+                            </a>
+                            <p>GENESIS</p>
+                        </div>
+                        <div class="col game-box">
+                            <a href="#">
+                                <img src="/img/game/slot/GOLDENHERO.png" class="game-img" alt="GOLDENHERO">
+                                <img src="/img/game/slot/logo_GOLDENHERO.png" class="logo-img" alt="GOLDENHERO">
+                            </a>
+                            <p>GOLDENHERO</p>
+                        </div>
+                        <div class="col game-box">
+                            <a href="#">
+                                <img src="/img/game/slot/HABANERO.png" class="game-img" alt="HABANERO">
+                                <img src="/img/game/slot/logo_HABANERO.png" class="logo-img" alt="HABANERO">
+                            </a>
+                            <p>HABANERO</p>
+                        </div>
+                        <div class="col game-box">
+                            <a href="#">
+                                <img src="/img/game/slot/ISOFTBET.png" class="game-img" alt="ISOFTBET">
+                                <img src="/img/game/slot/logo_ISOFTBET.png" class="logo-img" alt="ISOFTBET">
+                            </a>
+                            <p>I SOFT BET</p>
+                        </div>
+                        <div class="col game-box">
+                            <a href="#">
+                                <img src="/img/game/slot/NETENT.png" class="game-img" alt="NETENT">
+                                <img src="/img/game/slot/logo_NETENT.png" class="logo-img" alt="NETENT">
+                            </a>
+                            <p>NETENT</p>
+                        </div>
+
+                        <div class="col game-box">
+                            <a href="#">
+                                <img src="/img/game/slot/PLAYNGO.png" class="game-img" alt="PLAYNGO">
+                                <img src="/img/game/slot/logo_PLAYNGO.png" class="logo-img" alt="PLAYNGO">
+                            </a>
+                            <p>PLAY N GO</p>
+                        </div>
+                        <div class="col game-box">
+                            <a href="#">
+                                <img src="/img/game/slot/PLAYSON.png" class="game-img" alt="PLAYSON">
+                                <img src="/img/game/slot/logo_PLAYSON.png" class="logo-img" alt="PLAYSON">
+                            </a>
+                            <p>PLAYSON</p>
+                        </div>
+                        <div class="col game-box">
+                            <a href="#">
+                                <img src="/img/game/slot/PLAYSTAR.png" class="game-img" alt="PLAYSTAR">
+                                <img src="/img/game/slot/logo_PLAYSTAR.png" class="logo-img" alt="PLAYSTAR">
+                            </a>
+                            <p>PLAY STAR</p>
+                        </div>
+                        <div class="col game-box">
+                            <a href="#">
+                                <img src="/img/game/slot/PRAGMATICTRANSFER.png" class="game-img" alt="PRAGMATICTRANSFER">
+                                <img src="/img/game/slot/logo_PRAGMATICTRANSFER.png" class="logo-img" alt="PRAGMATICTRANSFER">
+                            </a>
+                            <p>PRAGMATIC</p>
+                        </div>
+                        <div class="col game-box">
+                            <a href="#">
+                                <img src="/img/game/slot/REDTIGER.png" class="game-img" alt="REDTIGER">
+                                <img src="/img/game/slot/logo_REDTIGER.png" class="logo-img" alt="REDTIGER">
+                            </a>
+                            <p>RED TIGER</p>
+                        </div>
+                        <div class="col game-box">
+                            <a href="#">
+                                <img src="/img/game/slot/TTG.png" class="game-img" alt="TTG">
+                                <img src="/img/game/slot/logo_TTG.png" class="logo-img" alt="TTG">
+                            </a>
+                            <p>TTG</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <section class="section section3">
+            <div class="container">
+                <h5 class="mb-5">Casino</h5>
+            </div>
+        </section>
+        <section class="section section4 deposit">
+            <div class="container">
+                <h5 class="mb-5">입금</h5>
+
+                <div class="inner-wrap">
+
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="deposit-tab" data-bs-toggle="tab" data-bs-target="#deposit" type="button"
+                                role="tab" aria-controls="deposit" aria-selected="true">입금신청</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="depositList-tab" data-bs-toggle="tab" data-bs-target="#depositList" type="button"
+                                role="tab" aria-controls="depositList" aria-selected="false">입금내역</button>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active pt-5" id="deposit" role="tabpanel" aria-labelledby="deposit-tab">
+                            <form name="frm1" action="">
+                                <div class="table-wrap">
+                                    <table class="table-style1">
+                                        <colgroup>
+                                            <col width="20%">
+                                            <col width="80%">
+                                        </colgroup>
+                                        <tr>
+                                            <th>입금자명</th>
+                                            <td>
+                                                <p>홍길동</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>보유머니</th>
+                                            <td>
+                                                <p>500,000</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>입금신청 금액</th>
+                                            <td>
+                                                <input type="text" name="requestMoney" class="input-style1 color-mint" value="0" readonly>
+                                                <div class="btn-box mt-3">
+                                                    <button type="button" class="btn btn-darkgray" onclick="addMoney1('10000')">1만원</button>
+                                                    <button type="button" class="btn btn-darkgray" onclick="addMoney1('50000')">5만원</button>
+                                                    <button type="button" class="btn btn-darkgray" onclick="addMoney1('100000')">10만원</button>
+                                                    <button type="button" class="btn btn-darkgray" onclick="addMoney1('500000')">50만원</button>
+                                                    <button type="button" class="btn btn-darkgray" onclick="addMoney1('1000000')">100만원</button>
+                                                    <button type="button" class="btn btn-darkgray" onclick="resetMoney1()">CLEAR</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+            
+                                <div class="text-box mt-5">
+                                    <p class="mb-4 text-center">※※※※ 입금 전 코인 거래 계좌확인 필수!! ※※※※</p>
+                                    <ul>
+                                        <li>- 카카오페이, 토스, 핀크, 위비모바일페이, 페이코, 뱅크월렛, 하나N월렛, 케이뱅크(퀵송금) 오픈뱅킹(간편송금)은행 대행 업체 이용 불가 (금지)</li>
+                                        <li>- 타행, 타명의 입금 처리 불가, 수표 입금 시, 절대 처리 및 반송 불가</li>
+                                        <li>- 미등록 계좌 입금 시 이체증 확인 후 반환 (반환 소요시간 3시간 ~ 8시간)</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="btn-box text-center mt-5">
+                                    <a href="javascript:void(0)" class="btn-submit">
+                                        <span>입금신청</span>
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane pt-5 fade" id="depositList" role="tabpanel" aria-labelledby="depositList-tab">
+                            <div class="table-wrap">
+                                <table class="table-style2">
+                                    <thead>
+                                        <tr>
+                                            <th>입금 금액</th>
+                                            <th>입금자 명</th>
+                                            <th>입금 일자</th>
+                                            <th>처리 상태</th>
+                                            <th>관리</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>10,000</td>
+                                            <td>홍길동</td>
+                                            <td>2023-01-02 6:08:00</td>
+                                            <td class="state-r">접수</td>
+                                            <td><a href="#" class="del-list">삭제</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>10,000</td>
+                                            <td>홍길동</td>
+                                            <td>2023-01-02 6:08:00</td>
+                                            <td class="state-c">취소</td>
+                                            <td><a href="#" class="del-list">삭제</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>10,000</td>
+                                            <td>홍길동</td>
+                                            <td>2023-01-02 6:08:00</td>
+                                            <td class="state-w">대기</td>
+                                            <td><a href="#" class="del-list">삭제</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>10,000</td>
+                                            <td>홍길동</td>
+                                            <td>2023-01-02 6:08:00</td>
+                                            <td class="state-s">완료</td>
+                                            <td><a href="#" class="del-list">삭제</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>10,000</td>
+                                            <td>홍길동</td>
+                                            <td>2023-01-02 6:08:00</td>
+                                            <td class="state-s">완료</td>
+                                            <td><a href="#" class="del-list">삭제</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>10,000</td>
+                                            <td>홍길동</td>
+                                            <td>2023-01-02 6:08:00</td>
+                                            <td class="state-s">완료</td>
+                                            <td><a href="#" class="del-list">삭제</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>10,000</td>
+                                            <td>홍길동</td>
+                                            <td>2023-01-02 6:08:00</td>
+                                            <td class="state-s">완료</td>
+                                            <td><a href="#" class="del-list">삭제</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>10,000</td>
+                                            <td>홍길동</td>
+                                            <td>2023-01-02 6:08:00</td>
+                                            <td class="state-s">완료</td>
+                                            <td><a href="#" class="del-list">삭제</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>10,000</td>
+                                            <td>홍길동</td>
+                                            <td>2023-01-02 6:08:00</td>
+                                            <td class="state-s">완료</td>
+                                            <td><a href="#" class="del-list">삭제</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>10,000</td>
+                                            <td>홍길동</td>
+                                            <td>2023-01-02 6:08:00</td>
+                                            <td class="state-s">완료</td>
+                                            <td><a href="#" class="del-list">삭제</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>10,000</td>
+                                            <td>홍길동</td>
+                                            <td>2023-01-02 6:08:00</td>
+                                            <td class="state-s">완료</td>
+                                            <td><a href="#" class="del-list">삭제</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>10,000</td>
+                                            <td>홍길동</td>
+                                            <td>2023-01-02 6:08:00</td>
+                                            <td class="state-s">완료</td>
+                                            <td><a href="#" class="del-list">삭제</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <ul class="pagination pt-5">
+                                    <li><a href="#" class="first me-3">First</a></li>
+                                    <li><a href="#" class="prev me-3"><i class="bi bi-arrow-left-circle"></i></a></li>
+                                    <li><a href="#" class="active">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#" class="next ms-3"><i class="bi bi-arrow-right-circle"></i></a></li>
+                                    <li><a href="#" class="last ms-3">Last</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </section>
+        <section class="section section5 withdraw">
+            <div class="container">
+                <h5 class="mb-5">출금</h5>
+
+                <div class="inner-wrap">
+
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="withdraw-tab" data-bs-toggle="tab" data-bs-target="#withdraw" type="button"
+                                role="tab" aria-controls="withdraw" aria-selected="true">출금신청</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="withdrawList-tab" data-bs-toggle="tab" data-bs-target="#withdrawList" type="button"
+                                role="tab" aria-controls="withdrawList" aria-selected="false">출금내역</button>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active pt-5" id="withdraw" role="tabpanel" aria-labelledby="withdraw-tab">
+                            <form name="frm2" action="">
+                                <div class="table-wrap">
+                                    <table class="table-style1">
+                                        <colgroup>
+                                            <col width="20%">
+                                            <col width="80%">
+                                        </colgroup>
+                                        <tr>
+                                            <th>출금자명</th>
+                                            <td>
+                                                <p>홍길동</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>보유머니</th>
+                                            <td>
+                                                <p>500,000</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>출금신청 금액</th>
+                                            <td>
+                                                <input type="text" name="requestMoney" class="input-style1 color-mint" value="0" readonly>
+                                                <div class="btn-box mt-3">
+                                                    <button type="button" class="btn btn-darkgray" onclick="addMoney2('10000')">1만원</button>
+                                                    <button type="button" class="btn btn-darkgray" onclick="addMoney2('50000')">5만원</button>
+                                                    <button type="button" class="btn btn-darkgray" onclick="addMoney2('100000')">10만원</button>
+                                                    <button type="button" class="btn btn-darkgray" onclick="addMoney2('500000')">50만원</button>
+                                                    <button type="button" class="btn btn-darkgray" onclick="addMoney2('1000000')">100만원</button>
+                                                    <button type="button" class="btn btn-darkgray" onclick="resetMoney2()">CLEAR</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>출금 비밀번호</th>
+                                            <td>
+                                                <input type="password" name="password" class="input-style1 color-mint" maxlength="20">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+            
+                                <div class="text-box mt-5">
+                                    <p class="mb-4 text-center">※※※※ 출금 전 코인 거래 계좌확인 필수!! ※※※※</p>
+                                    <ul>
+                                        <li>- 카카오페이, 토스, 핀크, 위비모바일페이, 페이코, 뱅크월렛, 하나N월렛, 케이뱅크(퀵송금) 오픈뱅킹(간편송금)은행 대행 업체 이용 불가 (금지)</li>
+                                        <li>- 타행, 타명의 입금 처리 불가, 수표 입금 시, 절대 처리 및 반송 불가</li>
+                                        <li>- 미등록 계좌 입금 시 이체증 확인 후 반환 (반환 소요시간 3시간 ~ 8시간)</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="btn-box text-center mt-5">
+                                    <a href="javascript:void(0)" class="btn-submit">
+                                        <span>출금신청</span>
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane pt-5 fade" id="withdrawList" role="tabpanel" aria-labelledby="withdrawList-tab">
+                            <div class="table-wrap">
+                                <table class="table-style2">
+                                    <thead>
+                                        <tr>
+                                            <th>출금 금액</th>
+                                            <th>출금자 명</th>
+                                            <th>출금 일자</th>
+                                            <th>처리 상태</th>
+                                            <th>관리</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>10,000</td>
+                                            <td>홍길동</td>
+                                            <td>2023-01-02 6:08:00</td>
+                                            <td class="state-r">접수</td>
+                                            <td><a href="#" class="del-list">삭제</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>10,000</td>
+                                            <td>홍길동</td>
+                                            <td>2023-01-02 6:08:00</td>
+                                            <td class="state-c">취소</td>
+                                            <td><a href="#" class="del-list">삭제</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>10,000</td>
+                                            <td>홍길동</td>
+                                            <td>2023-01-02 6:08:00</td>
+                                            <td class="state-w">대기</td>
+                                            <td><a href="#" class="del-list">삭제</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>10,000</td>
+                                            <td>홍길동</td>
+                                            <td>2023-01-02 6:08:00</td>
+                                            <td class="state-s">완료</td>
+                                            <td><a href="#" class="del-list">삭제</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>10,000</td>
+                                            <td>홍길동</td>
+                                            <td>2023-01-02 6:08:00</td>
+                                            <td class="state-s">완료</td>
+                                            <td><a href="#" class="del-list">삭제</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>10,000</td>
+                                            <td>홍길동</td>
+                                            <td>2023-01-02 6:08:00</td>
+                                            <td class="state-s">완료</td>
+                                            <td><a href="#" class="del-list">삭제</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>10,000</td>
+                                            <td>홍길동</td>
+                                            <td>2023-01-02 6:08:00</td>
+                                            <td class="state-s">완료</td>
+                                            <td><a href="#" class="del-list">삭제</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>10,000</td>
+                                            <td>홍길동</td>
+                                            <td>2023-01-02 6:08:00</td>
+                                            <td class="state-s">완료</td>
+                                            <td><a href="#" class="del-list">삭제</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>10,000</td>
+                                            <td>홍길동</td>
+                                            <td>2023-01-02 6:08:00</td>
+                                            <td class="state-s">완료</td>
+                                            <td><a href="#" class="del-list">삭제</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>10,000</td>
+                                            <td>홍길동</td>
+                                            <td>2023-01-02 6:08:00</td>
+                                            <td class="state-s">완료</td>
+                                            <td><a href="#" class="del-list">삭제</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>10,000</td>
+                                            <td>홍길동</td>
+                                            <td>2023-01-02 6:08:00</td>
+                                            <td class="state-s">완료</td>
+                                            <td><a href="#" class="del-list">삭제</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>10,000</td>
+                                            <td>홍길동</td>
+                                            <td>2023-01-02 6:08:00</td>
+                                            <td class="state-s">완료</td>
+                                            <td><a href="#" class="del-list">삭제</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <ul class="pagination pt-5">
+                                    <li><a href="#" class="first me-3">First</a></li>
+                                    <li><a href="#" class="prev me-3"><i class="bi bi-arrow-left-circle"></i></a></li>
+                                    <li><a href="#" class="active">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#" class="next ms-3"><i class="bi bi-arrow-right-circle"></i></a></li>
+                                    <li><a href="#" class="last ms-3">Last</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </section>
+        <section class="section section6 customer">
+            <div class="container">
+                <h5 class="mb-5">고객센터</h5>
+                <!-- <a class="btn btn-primary" data-bs-toggle="modal" href="#boardView" role="button">Open first modal</a> -->
+                <div class="inner-wrap">
+                    <div class="table-wrap">
+                        <table class="table-style2">
+                            <colgroup>
+                                <col width="80%">
+                                <col width="20%">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>내용</th>
+                                    <th>일자</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a href="javascript:boardView(1)">계좌문의드립니다</a></td>
+                                    <td>2023-01-02 6:08:00</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="javascript:boardView(1)">계좌문의드립니다</a></td>
+                                    <td>2023-01-02 6:08:00</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="javascript:boardView(1)">계좌문의드립니다</a></td>
+                                    <td>2023-01-02 6:08:00</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="javascript:boardView(1)">계좌문의드립니다</a></td>
+                                    <td>2023-01-02 6:08:00</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="javascript:boardView(1)">계좌문의드립니다</a></td>
+                                    <td>2023-01-02 6:08:00</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="javascript:boardView(1)">계좌문의드립니다</a></td>
+                                    <td>2023-01-02 6:08:00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="btn-box text-end pt-5">
+                            <button type="button" class="btn btn-darkgray2">빠른계좌문의</button>
+                            <button type="button" class="btn btn-darkgray2 ms-2" onclick="boardWrite()">문의하기</button>
+                        </div>
+                        <ul class="pagination pt-5">
+                            <li><a href="#" class="first me-3">First</a></li>
+                            <li><a href="#" class="prev me-3"><i class="bi bi-arrow-left-circle"></i></a></li>
+                            <li><a href="#" class="active">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#" class="next ms-3"><i class="bi bi-arrow-right-circle"></i></a></li>
+                            <li><a href="#" class="last ms-3">Last</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section section7 notice">
+            <div class="container">
+                <h5 class="mb-5">공지사항</h5>
+                <div class="inner-wrap">
+                    <div class="table-wrap">
+                        <table class="table-style2">
+                            <colgroup>
+                                <col width="80%">
+                                <col width="20%">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>내용</th>
+                                    <th>일자</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a href="javascript:boardView(1)">공지사항입니다</a></td>
+                                    <td>2023-01-02 6:08:00</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="javascript:boardView(1)">공지사항입니다</a></td>
+                                    <td>2023-01-02 6:08:00</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="javascript:boardView(1)">공지사항입니다</a></td>
+                                    <td>2023-01-02 6:08:00</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="javascript:boardView(1)">공지사항입니다</a></td>
+                                    <td>2023-01-02 6:08:00</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="javascript:boardView(1)">공지사항입니다</a></td>
+                                    <td>2023-01-02 6:08:00</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="javascript:boardView(1)">공지사항입니다</a></td>
+                                    <td>2023-01-02 6:08:00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <ul class="pagination pt-5">
+                            <li><a href="#" class="first me-3">First</a></li>
+                            <li><a href="#" class="prev me-3"><i class="bi bi-arrow-left-circle"></i></a></li>
+                            <li><a href="#" class="active">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#" class="next ms-3"><i class="bi bi-arrow-right-circle"></i></a></li>
+                            <li><a href="#" class="last ms-3">Last</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
+
+    <footer>
+        <div class="modal fade register" id="register" aria-hidden="true" aria-labelledby="registerLabel" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="registerLabel">REGISTER</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="">
+                            <input type="text" class="input-style3" placeholder="ID" autocomplete="off" maxlength="20">
+                            <input type="text" class="input-style3" placeholder="NICK NAME" autocomplete="off" maxlength="20">
+                            <input type="password" class="input-style3" placeholder="PASSWORD" autocomplete="off" maxlength="20">
+                            <input type="password" class="input-style3" placeholder="CONFIRM PASSWORD" autocomplete="off" maxlength="20">
+                            <input type="text" class="input-style3" placeholder="ACCOUNT NUMBER" autocomplete="off" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="20">
+                            <input type="text" class="input-style3" placeholder="ACCOUNT NAME" autocomplete="off" maxlength="20">
+                            <input type="password" class="input-style3" placeholder="ACCOUNT PASSWORD" autocomplete="off" maxlength="20">
+                            <a href="#" class="btn-neon">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                REGISTER
+                            </a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade login" id="login" aria-hidden="true" aria-labelledby="loginLabel" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="loginLabel">LOGIN</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="">
+                            <input type="text" class="input-style3" placeholder="ID" autocomplete="off">
+                            <input type="password" class="input-style3" placeholder="PASSWORD" autocomplete="off">
+                            <a href="#" class="btn-neon">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                LOGIN
+                            </a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="boardView" aria-hidden="true" aria-labelledby="boardViewLabel" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="boardViewLabel">게시판 제목입니다</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        게시판 내용입니다
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="boardWrite" aria-hidden="true" aria-labelledby="boardWriteLabel" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <input type="text" class="input-style2" placeholder="제목을 입력해주세요.">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <textarea name="" id="" placeholder="문의 내용을 입력해주세요."></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
     <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/money.js"></script>
 </body>
 </html>
