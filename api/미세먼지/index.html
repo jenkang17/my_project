@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미세먼지</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        table {
+            margin: auto;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap p-5">
+        <div class="mb-3 text-center">
+            <input type="text" class="form-control" id="searchInput" placeholder="지역구 검색" style="max-width: 500px; display: inline-block; text-align: center;">
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>지역구</th>
+                    <th>미세농도</th>
+                    <th>미세지수</th>
+                </tr>
+            </thead>
+            <tbody id="meseList">
+            </tbody>
+        </table>
+    </div>
+</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            $.ajax({
+                type: "GET",
+                url: "http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/RealtimeCityAir/1/99",
+                //data: {},
+                success: function(data){
+                    //console.log(data);
+                    if (data.length > 0 || data != "")
+                    {
+                        let mise = data["RealtimeCityAir"]["row"];
+                        //console.log(data.length);
+
+                        for( let i = 0; i < mise.length; i++)
+                        {
+                            let gu_name = mise[i]["MSRSTE_NM"];
+                            let gu_mise = mise[i]["IDEX_MVL"];
+                            let gu_signal = mise[i]["IDEX_NM"];
+                            
+                            let tr = `<tr><td>${gu_name}</td><td>${gu_mise}</td><td>${gu_signal}</td></tr>`;
+                            $("#meseList").append(tr);
+                        }
+                    }
+                    else
+                    {
+                        let tr = `<tr><td colspan='3'>데이터가 없습니다.</td></tr>`;
+                        $("#meseList").append(tr);
+                    }
+                }
+            })
+        });
+            
+
+        
+        
+        $("#searchInput").keyup(function(e) {
+            $("#meseList").empty(); // 리스트 삭제
+
+            let keyword = $(this).val();
+
+            $.ajax({
+                type: "GET",
+                url: "http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/RealtimeCityAir/1/99",
+                success: function(data){
+                    if (data.length > 0 || data != "")
+                    {
+                        let mise = data["RealtimeCityAir"]["row"];
+                        //console.log(data.length);
+
+                        for( let i = 0; i < mise.length; i++)
+                        {   
+                            let gu_name = mise[i]["MSRSTE_NM"];
+                            let gu_mise = mise[i]["IDEX_MVL"];
+                            let gu_signal = mise[i]["IDEX_NM"];
+
+                            if (gu_name.match(keyword))
+                            {
+                                let tr = `<tr><td>${gu_name}</td><td>${gu_mise}</td><td>${gu_signal}</td></tr>`;
+                                $("#meseList").append(tr);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        let tr = `<tr><td colspan='3'>데이터가 없습니다.</td></tr>`;
+                        $("#meseList").append(tr);
+                    }
+                }
+            })
+        });
+    </script>
+</html>
